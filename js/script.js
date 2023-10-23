@@ -49,4 +49,26 @@ const team = [
     }
 
 ];
+// Stampare su console, per ogni membro del team, le informazioni di nome, ruolo e la stringa della foto
 console.log (team);
+
+// Stampare le stesse informazioni su DOM sottoforma di stringhe
+// Trasformare la stringa foto in una immagine effettiva 
+
+const teamBox = document.getElementById('team-box');
+
+for (let i = 0; i < team.length; i++) {
+    teamMember(i);
+}
+
+function teamMember(i) {
+    const teamMember = document.createElement('div');
+    teamMember.classList.add('p-4');
+    teamMember.innerHTML = `
+    Nome : ${team[i].name} <br>
+    Surname: ${team[i].surname} <br>
+    Role: ${team[i].role} <br>
+    Picture:<br> <img src='img/${team[i].picture}'>
+    `
+    teamBox.append(teamMember);
+}
