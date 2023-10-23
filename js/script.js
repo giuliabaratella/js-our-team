@@ -88,7 +88,7 @@ function teamMember(member) {
 
 // Aggiungere un nuovo membro al team
 const btn = document.querySelector('button');
-btn.addEventListener('click', newMember);
+btn.addEventListener('click', newMember)
 
 
 function newMember(){
@@ -102,5 +102,13 @@ function newMember(){
     console.log(newMember);
     team.push(newMember);
     teamBox.append(teamMember(newMember));
+    resetForm();
+}
+
+function resetForm(){
+    document.getElementById('name').value = '';
+    document.getElementById('surname').value = '';
+    document.getElementById('role').value = '';
+    document.getElementById('picture').value = '';
 }
 
