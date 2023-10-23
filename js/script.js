@@ -63,12 +63,27 @@ for (let i = 0; i < team.length; i++) {
 
 function teamMember(i) {
     const teamMember = document.createElement('div');
-    teamMember.classList.add('p-4');
-    teamMember.innerHTML = `
+    teamMember.classList.add('col-4');
+    teamMember.classList.add('mb-4');
+    
+    /* 
     Nome : ${team[i].name} <br>
     Surname: ${team[i].surname} <br>
     Role: ${team[i].role} <br>
-    Picture:<br> <img src='img/${team[i].picture}'>
+    Picture:<br> <img src='img/${team[i].picture}' alt="team photo">
+    */
+    let templateCard =`
+    <div class="card">
+        <img src='img/${team[i].picture}' alt="team photo">
+        <div class="card-body">
+            <h3 class="card-title">${team[i].name} ${team[i].surname}</h3>
+            <div class="card-text">
+                ${team[i].role}
+            </div>
+        </div>
+    </div> 
     `
+    teamMember.innerHTML = templateCard;
     teamBox.append(teamMember);
 }
+
