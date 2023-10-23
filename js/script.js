@@ -56,12 +56,11 @@ console.log (team);
 // Trasformare la stringa foto in una immagine effettiva 
 
 const teamBox = document.getElementById('team-box');
-
 for (let i = 0; i < team.length; i++) {
-    teamMember(i);
+    teamBox.append(teamMember(team[i]));
 }
 
-function teamMember(i) {
+function teamMember(member) {
     const teamMember = document.createElement('div');
     teamMember.classList.add('col-4');
     teamMember.classList.add('mb-4');
@@ -74,16 +73,34 @@ function teamMember(i) {
     */
     let templateCard =`
     <div class="card">
-        <img src='img/${team[i].picture}' alt="team photo">
+        <img src='img/${member.picture}' alt="team photo">
         <div class="card-body">
-            <h3 class="card-title">${team[i].name} ${team[i].surname}</h3>
+            <h3 class="card-title">${member.name} ${member.surname}</h3>
             <div class="card-text">
-                ${team[i].role}
+                ${member.role}
             </div>
         </div>
     </div> 
     `
     teamMember.innerHTML = templateCard;
-    teamBox.append(teamMember);
+    return teamMember;
+}
+
+// Aggiungere un nuovo membro al team
+const btn = document.querySelector('button');
+btn.addEventListener('click', newMember);
+
+
+function newMember(){
+    const newMember = {
+        name: document.getElementById('name').value,
+        surname: document.getElementById('surname').value,
+        role: document.getElementById('role').value,
+        picture: document.getElementById('picture').value
+    }
+
+    console.log(newMember);
+    team.push(newMember);
+    teamBox.append(teamMember(newMember));
 }
 
