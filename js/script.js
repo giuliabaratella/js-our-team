@@ -73,8 +73,8 @@ function teamMember(member) {
     */
     let templateCard =`
     <div class="card">
-        <img src='img/${member.picture}' alt="team photo">
-        <div class="card-body">
+        <img src='img/${member.picture}' alt="${member.name} ${member.surname}">
+        <div class="card-body text-center">
             <h3 class="card-title">${member.name} ${member.surname}</h3>
             <div class="card-text">
                 ${member.role}

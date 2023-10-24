@@ -1,3 +1,17 @@
+main {
+    background-color: #f5f5f1;
+}
+
+main h1 {
+    font-size: 1.5em;
+}
+
 .card {
-    overflow: hidden;
+    border-radius: 0px;
+    border: 0;
+    margin-bottom: 25px;
+}
+
+.card h3 {
+    font-family: 'Vidaloka', serif;
 }
